@@ -14,18 +14,18 @@
 //numberOne = numberTwo; // Change what is inside the address 2 to be the same as what's in the address 1
 
 
-string s1 = "My name is Fred";
-string s2 = "Fred";
+//string s1 = "My name is Fred";
+//string s2 = "Fred";
 
-bool compareString = s1.Contains(s2);
+//bool compareString = s1.Contains(s2);
 
-Console.WriteLine(compareString);
+//Console.WriteLine(compareString);
 
 //String Method
 //1. Replace - Replace a matching character in a string (str.Replace('what to replace', 'which to replace'))
 //2. Trim - Trimming unecessary values in a string
 //3. Substring - targeting the index of a string name.Substring(index, No.ofChar).
-//4.Split - splitting the spaces of a string and writeline
+//4. Split - splitting the spaces of a string and writeline
 //5. Contains - check if string is in a string
 //6. Stringbuilder
 //using System.Text;
@@ -40,3 +40,20 @@ Console.WriteLine(compareString);
  * Create a method for capitalizing the first letter of every word in the String.
  * Create a method for reversing a string ("hello world" -> "dlrow olleh") using iteration (StringBuilder)
  */
+
+//Create a method for Capitalizing the first letter of a sentence
+string myString = "the quick brown fox jumps";
+char toUpperString = char.ToUpper(myString[0]);
+
+Console.WriteLine(toUpperString);
+Console.WriteLine(toUpperString + myString.Substring(1)); //substring to cast the char
+
+
+//Create a method for capitalizing the first letter of every word in the String.
+bool checkForEmptySpace = myString.Contains(' '); //Always returns a boolean
+char emptyChar = ' ';
+
+int index = myString.IndexOf(emptyChar);
+Console.WriteLine(index);
+// try using ToTitleCase
+//ToCharArray put string into array
