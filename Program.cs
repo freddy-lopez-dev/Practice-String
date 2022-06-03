@@ -48,6 +48,32 @@ char toUpperString = char.ToUpper(myString[0]);
 Console.WriteLine(toUpperString);
 Console.WriteLine(toUpperString + myString.Substring(1)); //substring to cast the char
 
+//inClass solution
+string testSentences = "The quick brown fox jumped. The lazy dog did not.";
+CapitalizeSentenceStarts(testSentences);
+string CapitalizeSentenceStarts(string sentences)
+{
+    string[] sentenceArray = sentences.Split(' ');
+
+    for(int i=0; i < sentenceArray.Length; i++)
+    {
+        if (sentenceArray[i].Length > 0 )
+        {
+            string sentence = sentenceArray[i].Trim();
+            //get first letter of the array
+            char firstLetter = sentence.ToCharArray()[0];
+            sentence = sentence.Remove(0, 1);
+            sentenceArray[i] = sentenceArray[i].Insert(0, Char.ToUpper(firstLetter).ToString());
+            sentenceArray[i] = sentenceArray[i].Insert(sentenceArray[i].Length, ".");
+
+        }
+
+    }
+
+    return String.Join("", sentenceArray);
+}
+
+
 
 //Create a method for capitalizing the first letter of every word in the String.
 bool checkForEmptySpace = myString.Contains(' '); //Always returns a boolean
