@@ -53,6 +53,7 @@ Console.WriteLine(toUpperString + myString.Substring(1)); //substring to cast th
 //inClass solution
 string testSentences = "The quick brown fox jumped. The lazy dog did not.";
 Console.WriteLine(ReverseString(testSentences));
+Console.WriteLine(ReverseWordOrder(testSentences));
 string ReverseString(string toReverse)
 {
     StringBuilder sb = new StringBuilder();
@@ -64,6 +65,27 @@ string ReverseString(string toReverse)
     return sb.ToString();
 }
 
+string ReverseWordOrder(string toReverse)
+{
+    string[] words = toReverse.Split(' ');
+    StringBuilder sb = new StringBuilder();
+
+    for(int i = words.Length - 1 ; i >= 0; i--)
+    {
+        string word = words[i];
+        if (word[word.Length - 1] == '.')
+        {
+            word = word.Substring(word.Length - 1);
+            word.Prepend('.');
+        }
+        else
+        {
+            sb.Append($"{word} ");
+        }        
+    }
+
+    return sb.ToString();
+}
 
 
 //Create a method for capitalizing the first letter of every word in the String.
