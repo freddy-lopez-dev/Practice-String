@@ -42,6 +42,8 @@
  */
 
 //Create a method for Capitalizing the first letter of a sentence
+using System.Text;
+
 string myString = "the quick brown fox jumps";
 char toUpperString = char.ToUpper(myString[0]);
 
@@ -50,27 +52,16 @@ Console.WriteLine(toUpperString + myString.Substring(1)); //substring to cast th
 
 //inClass solution
 string testSentences = "The quick brown fox jumped. The lazy dog did not.";
-CapitalizeSentenceStarts(testSentences);
-string CapitalizeSentenceStarts(string sentences)
+Console.WriteLine(ReverseString(testSentences));
+string ReverseString(string toReverse)
 {
-    string[] sentenceArray = sentences.Split(' ');
-
-    for(int i=0; i < sentenceArray.Length; i++)
+    StringBuilder sb = new StringBuilder();
+    for(int i = toReverse.Length -1; i>= 0; i--)
     {
-        if (sentenceArray[i].Length > 0 )
-        {
-            string sentence = sentenceArray[i].Trim();
-            //get first letter of the array
-            char firstLetter = sentence.ToCharArray()[0];
-            sentence = sentence.Remove(0, 1);
-            sentenceArray[i] = sentenceArray[i].Insert(0, Char.ToUpper(firstLetter).ToString());
-            sentenceArray[i] = sentenceArray[i].Insert(sentenceArray[i].Length, ".");
-
-        }
-
+        sb.Append(toReverse[i]);
     }
 
-    return String.Join("", sentenceArray);
+    return sb.ToString();
 }
 
 
